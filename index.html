@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Example</title>
+        <script type='text/javascript' src='https://meet.jit.si/external_api.js'></script>
+        <script type='text/javascript' src='./index.js'></script>
+        <link rel='stylesheet' href='./index.css' />
+    </head>
+    <body onload='ready();'>
+        <span class='watermark'>Tribhuwan</span>
+	<span class='loading hidden'>Loading...</span>
+        <section id='welcome'>
+	<div class='pre-screen'>
+	<div class='join-create-section'>
+	    <div class='transparent-bg'></div>
+	    <div class='tab-container'>
+	    	<div class='tab active tab-join'>Join Meeting</div>
+		<div class='tab tab-start'>Start Meeting</div>
+	    </div>
+            <div class='join-meeting active'>
+                <input type='text' class='meet-data' id='join-link' name='join-link' placeholder='Meeting Link' />
+		<br />
+		<button id='join-btn' class='btn'>Join</button>
+            </div>
+            <div class='start-meeting'>
+                <div class='creating-info'>
+			<div class='inp' id='meeting-output'><i>Click generate link button followed by create meeting to start a meeting</i><i class='icon icon-copy' onclick="copy_link_to_clipboard()">cp</i></div>
+                    <button id='generate-btn' class='btn'>Generate Link</button>
+                    <button id='create-btn' class='btn'>Create A meeting</button>
+                </div>
+            </div>
+	</div>
+	</div>
+	<div class='footer'> 
+        	<h4>Created with love by sudip ghimire with support of [name] and several open source stars.</h4>
+	</div>
+	</section>
+        <section id='meet'>
+        </section>
+    </body>
+</html>
+
+
