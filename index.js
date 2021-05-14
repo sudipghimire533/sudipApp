@@ -11,8 +11,8 @@ function ready() {
         const domain = 'meet.jit.si';
         const options = {
             roomName: name,
-            width: document.getElementsByTagName('body')[0].width,
-            height: document.getElementsByT,
+            width: window.innerWidth,
+            height: window.innerHeight,
             parentNode: document.querySelector('#meet'),
             onload: meeting_is_ready,
             configOverwrite: {
@@ -54,7 +54,10 @@ function ready() {
         });
 
         // reload when leaving the meeeting to reset the config
-        api.addListener('participantLeft', function(){window.location.reload(true)});
+        api.addListener('videoConferenceLeft', function() {
+		window.location.reload(true);
+		document.getElementsByClassName('loading')[0].classList.remove('hidden');
+	});
 
 	// setting the password
 	api.addEventListener('videoConferenceJoined', function(){
@@ -76,7 +79,6 @@ function ready() {
     // promiting and downgrading to admin
 
     function convert_to_admin(api) {
-        alert("You are now admin");
         is_admin = true;
         api.executeCommand('overwriteConfig', {
             remoteVideoMenu: {

@@ -7,9 +7,9 @@ body{
 }
 .watermark{
 	position: fixed;
-	width: 30px;
-	height: 40px;
-	top: 40px;
+	width: 100px;
+	height: 48px;
+	top: 32px;
 	left: 20px;
 	background: white;
 	color: grey;
@@ -24,8 +24,10 @@ body{
 	text-align: center;
 }
 .footer > *{
-	font-size: 11px;
-	font-weight: 500;
+	font-size: 14px;
+	font-family: sans-serif;
+	letter-spacing: 1.5px;
+	font-weight: 550;
 	color: #fff;
 }
 #welcome{
@@ -36,36 +38,32 @@ body{
 	top: 0;
 	left: 0;
 	z-index: 2;
-	background: url('./bg.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 }
 .pre-screen{
 	position: relative;
-	display: inline-block;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
 	box-sizing: border-box;
 	height: 100%;
 	width: 100%;
-	max-width: 500px;
-	max-height: 400px;
-	border-radius: 12px;
-	margin: 10px;
+	background: linear-gradient(to right, #642b73, #c6426e);
 	overflow: hidden;
-}
-.transparent-bg{
-	background: rgba(200, 200, 200, 0.8);
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	border-radius: 12px;
-	filter: blur(2px);
-	z-index: -1;
 }
 .join-create-section{
 	position: relative;
 	display: inline-block;
 	height: 100%;
 	width: 100%;
+	max-width: 500px;
+	max-height: 400px;
+	background: rgba(180, 180, 180, 0.2);
+	border-radius: 15px;
+	overflow: hidden;
+	border: 2px solid #ddd;
+	color: #fff;
 }
 .btn,input{
 	cursor: pointer;
@@ -73,26 +71,26 @@ body{
 	letter-spacing: 1px;
 	outline: none;
 	border: none;
+	background: transparent;
 }
 .btn{
 	margin-top: 20px;
 	padding: 10px 30px;
+	color: #fff;
 	border-radius: 7px;
 	border: 2px solid #44ae33;
 	text-transform: uppercase;
 	font-size: 14px;
 }
-input{
+input, input::placeholder{
 	text-align: center;
 	width: calc(100% - 30px);
 	padding: 15px 10px;
 	box-sizing: border-box;
 	padding-bottom: 5px;
-	color: #aaa;
 	cursor: text;
 	border-bottom: 2px solid #44ae33;
-	background: transparent;
-	color: #000;
+	color: #fff;
 }
 #meeting-output{
 	font-weight: bold;
@@ -127,8 +125,7 @@ input{
 	text-align: center;
 	padding: 10px 5px;
 	flex-grow: 1;
-	margin: 1px 3px;
-	border-bottom: 1px solid #3333;
+	border-bottom: 1px solid #aaac;
 	cursor: pointer;
 	border-top: 5px solid #5ea0;
 	transition: all .5s;
@@ -139,19 +136,25 @@ input{
 }
 .join-meeting, .start-meeting{
 	overflow: hidden;
-	position: absolute;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column nowrap;
 	text-align: center;
 	margin-top: 30px;
 	position: relative;
 	width: 100%;
-	box-sizing: border-box;
-	transition: all 0.4s;
-	width: 0;
 	height: 0;
+	box-sizing: border-box;
+	opacity: 0;
+	transform: translateY(60px);
+	transition-property: opacity, transform;
+	transition-duration: .6s;
 }
 .join-meeting.active, .start-meeting.active{
-	width: 100%;
-	height: 100%;
+    opacity: 1;
+    height: auto;
+    transform: translateY(0px);
 }
 .loading{
 	position: fixed;
