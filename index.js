@@ -110,13 +110,10 @@ function ready() {
     };
 
     function decode_link(link) {
-        // remove the prefix
-        link = link.slice(link_prefix.length);
-
         // get the name which in between first []
-        let name = link.slice(1, link.indexOf(']'));
+        let name = link.slice(link.indexOf('[')+1, link.indexOf(']'));
 
-        // remove name from link
+      // remove name from link
         /* offset is 3 because in current link character to escape aside name.length is '[' at first
            and another at last
         */
